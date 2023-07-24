@@ -1,0 +1,17 @@
+{
+  "name": "module_2_assignment",
+  "version": "1.0.0",
+  "description": "Module 2 Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Nodejs"
+  ],
+  "author": "Arjuna",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^12.0.2"
+  }
+}

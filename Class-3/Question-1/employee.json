@@ -1,0 +1,26 @@
+{
+    "employees": [
+        {
+            "employeeID": "EMP001",
+            "employeeName": "John Doe",
+            "employeeDetails": {
+                "age": 30,
+                "email": "john.doe@example.com",
+                "position": "Software Engineer",
+                "department": "Development"
+            },
+            "projectID": "ABC123"
+        },
+        {
+            "employeeID": "EMP002",
+            "employeeName": "Jane Smith",
+            "employeeDetails": {
+                "age": 28,
+                "email": "jane.smith@example.com",
+                "position": "UX Designer",
+                "department": "Design"
+            },
+            "projectID": "XYZ456"
+        }
+    ]
+}

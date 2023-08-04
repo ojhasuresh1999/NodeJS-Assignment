@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Dashboard</title>
+  </head>
+  <body>
+    <h1>Admin Dashboard</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Email</th>
+          <th>Items</th>
+          <th>Date Inserted</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach((order) => { %>
+        <tr>
+          <td><%= order.name %></td>
+          <td><%= order.address %></td>
+          <td><%= order.email %></td>
+          <td><%= order.items.join(', ') %></td>
+          <td><%= order.dateInserted.toDateString() %></td>
+          <td><%= getOrderStatus(order.dateInserted) %></td>
+          <td>
+            <button onclick="sendEmail('<%= order.email %>')">
+              Send Email
+            </button>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <script>
+      // JavaScript function to send email
+      function sendEmail(email) {
+        fetch(`/sendEmail?email=${encodeURIComponent(email)}`)
+          .then((response) => response.text())
+          .then((result) => alert(result))
+          .catch((error) => console.error("Error sending email:", error));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+body{
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.container:last-child {
+    width: 40vw;
+}

@@ -1,0 +1,86 @@
+body {
+    padding: 30px;
+}
+
+.mainPageSearchBar {
+    display:flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mainPageLoginBox {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+
+.registerPageContent {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    align-content: center;
+}
+.newPostHeader {
+    display: flex;
+    justify-content: center;
+}
+.newPostImage {
+    object-fit: cover;
+    /* FIXME: Need to force img stretch into a square at all times for posts */
+    width:230px;
+    height:230px;
+}
+.wide {
+    min-width: 35em;
+}
+.newPostPhotoContent {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+
+.mainPageHeader {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+
+}
+.mainPageContent {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+
+.postDescription {
+    padding-bottom: 20px;
+}
+.plus.heart {
+    color: red;
+}
+.plus.circle {
+    color: teal;
+}
+.user.circle {
+    color: teal;
+}
+.ui.button {
+    background-color: teal;
+    color: white;
+}
+.users.icon {
+    color: rgb(0, 102, 102);
+}
+.ui.medium.circular.image {
+ margin-right: 50px;
+}

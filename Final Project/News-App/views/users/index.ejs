@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social Media App </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <!-- Add custom css specific here -->
+      <!-- Add custom css specific here -->
+      <link rel="stylesheet" href="/styles/main.css"> 
+      <link rel="stylesheet" href="/styles/mainindexpage.css"> 
+  </head>
+
+
+  <body>
+  <!-- SECTION: NAVBAR -->
+  <div class="ui secondary pointing menu">
+    <a href="/"class="item"> 
+      <h1>Social Media App</h1>
+      <a>
+    <a class="item" href="/">
+      <i class="home icon"></i>
+      Home
+    </a>
+    <a class="item active" href="/users?userName=">
+      <i class="users icon"></i>
+      Friends
+    </a>
+
+    <div class="mainPageSearchBar">
+      <form action="/users" method="GET">
+      <div class="ui action input">
+        <input type="text" name="userName" placeholder="Search Users...">
+
+        <button class="ui button">Search</button>
+      </div>
+      </form>
+    </div>
+    <!-- NAVBAR RIGHT SIDE -->
+    <div class="right menu">
+      <!-- Notifications here -->
+      <div class="ui item">
+        <div class="ui dropdown">
+          <i class="plus heart icon"></i>
+          <div class="text">Notifications</div>
+          <i class="dropdown icon"></i>
+          <!--FIXME: Add Ajax here for notification storing -->
+          <div class="menu">
+            <div class="item">New</div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            </div>
+              </div>
+            </div>
+        
+        <a class="ui item" href="/posts/new">
+          <i class="plus circle icon" ></i>
+          New Post
+        </a>
+      <a class="ui item" href="/users/<%= user.id %>">
+        <i class="user circle icon "></i>
+        Profile
+    </a>
+    
+      
+    </div>
+  </div>
+
+  <!-- SECTION: SHOW ALL USERS BELOW TAGGED BY /friends ID -->
+  <main>
+    <div class="mainIndexContent">
+  <h2> Friends List</h2>
+    <% if(!users.length) { %>
+      <p>Looks like there weren't any good matches for your search...</p>
+    <% } %>
+
+    <div class="ui middle aligned divided list">
+      <% users.forEach(user => { %>
+        <div class="item">
+          <div class="right floated content">
+            <div class="ui button" style="color: white">
+              <a href="/users/<%= user._id %>" style="color: white">
+              Add
+            </a>
+            </div>
+          </div>
+          <div class="content presentUsers">
+            <% randomBoi = Math.floor(Math.random() * Math.floor(10)); %>
+            <% randomNum = randomBoi.toString(); %>
+            <img class="ui avatar image" src= "https://picsum.photos/<%= randomNum %>00/<%= randomNum %>00"> <a href="/users/<%= user._id %>"> <%= user.firstName %> - <%= user.userName %></a>
+          </div>
+        </div>
+        
+      
+      <% }) %>
+    </div>
+       
+
+  </div>
+  <div class="rightIndexContent">
+    <!-- Right Index is User's recent activity -->
+    <div class="ui raised link card">
+      <% users.forEach(user => { %>
+      <div class="ui list">
+        <div class="item">
+          <div class="content">
+            <% randomBoi = Math.floor(Math.random() * Math.floor(10)); %>
+            <% randomNum = randomBoi.toString(); %>
+            <img class="ui avatar image" src= "https://picsum.photos/<%= randomNum %>00/<%= randomNum %>00"> <a href="/users/<%= user._id %>"> <%= user.userName %></a>
+            <% date = user.posts[0].createdAt.toDateString();%>
+            <div class="description"> last posted <%= date%></div>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+      
+    </div>
+  </div>
+
+
+
+  </main>
+
+
+
+
+    <!-- required scripts for jquery and semantic-ui -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+
+    <script type="text/javascript" src= "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"> </script>  
+  </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social Media App </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <!-- Add custom css specific here -->
+    <link rel="stylesheet" href="/styles/main.css"> 
+    <link rel="stylesheet" href="/styles/profilemain.css"> 
+  </head>
+
+
+  <body>
+  <!-- SECTION: NAVBAR -->
+  <div class="ui secondary pointing menu">
+    <a href="/"class="item"> 
+      <h1>Social Media App</h1>
+      <a>
+    <a class="item active" href="/">
+      <i class="home icon"></i>
+      Home
+    </a>
+    <a class="item" href="/users?userName=">
+      <i class="users icon"></i>
+      Friends
+    </a>
+
+    <div class="mainPageSearchBar">
+      <form action="/users" method="GET">
+      <div class="ui action input">
+        <input type="text" name="userName" placeholder="Search Users...">
+
+        <button class="ui button">Search</button>
+      </div>
+      </form>
+    </div>
+    <!-- NAVBAR RIGHT SIDE -->
+    <div class="right menu">
+      <!-- Notifications here -->
+      <div class="ui item">
+        <div class="ui dropdown">
+          <i class="plus heart icon"></i>
+          <div class="text">Notifications</div>
+          <i class="dropdown icon"></i>
+          <!--FIXME: Add Ajax here for notification storing -->
+          <div class="menu">
+            <div class="item">New</div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            </div>
+              </div>
+            </div>
+        
+        <a class="ui item" href="/posts/new">
+          <i class="plus circle icon" ></i>
+          New Post
+        </a>
+      <a class="ui item" href="/users/<%= user.id %>">
+        <i class="user circle icon "></i>
+        Profile
+    </a>
+    
+      
+    </div>
+  </div>
+
+  <!-- SECTION: USER PROFILE EDIT PAGE BELOW -->
+  <!-- Add more setting changes for everything that fits Schema values -->
+  <div>
+    <div class="settingsHeader"> 
+    <h4 class="ui horizontal divider header">
+      <i class="bar chart icon"></i>
+      Edit  <%= user.userName %>
+    </h4>
+  </div>
+    <div class="userSettingsContent">
+    <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+    <table class="ui definition table">
+      <tbody>
+        <!-- <tr> 
+          <td class="two wide column">Profile Picture</td>
+          <td><input type="file" name="picture" value="<%= user.picture %>" accept=".gif,.jpg,.jpeg,.png"></td>
+        </tr> --> <!-- FIXME: Uncomment when picture posts available ++ upload synced -->
+        <tr>
+          <td>Username</td>
+          <td>
+            <div class="ui input">
+            <input type="text" name="userName" value="<%= user.userName %>" />
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <td>User Biography</td>
+          <td>
+            <div class="ui input">
+              <input type="text" name="description" value="<%= user.description %>" height="48" maxlength="150" />
+            </div>
+            </td>
+        </tr>
+        <tr>
+          <td>Email Address</td>
+          <td>
+            <div class="ui input">
+              <input type="email" name="email" value="<%= user.email %>" />
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td>
+            <div class="ui input">
+            <input type="password" name="password" value="<%= user.password %>" />
+          </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<div class="settingButtons">
+    <button input type="submit" value="Update" class="ui primary button">
+     Submit Changes
+   </button>
+ </form>
+
+ <button class="ui button" > 
+  <a class="item" href="/users/<%= user._id %>"> Discard Changes
+  </a> 
+ </button>    
+
+</div>
+
+<div class= "logoutButton"> 
+<form action="/logout?_method=DELETE" method="POST">
+  <input type="submit" value="Logout" class="ui secondary button">
+  </form>
+</div>
+  </main>
+  
+     
+
+
+
+
+    <!-- required scripts for jquery and semantic-ui -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+
+    <script type="text/javascript" src= "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"> </script>  
+  </body>
+</html>

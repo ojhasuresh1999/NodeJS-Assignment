@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <!-- Add custom css specific here -->
+    <link rel="stylesheet" href="/styles/profilemain.css"> 
+    <link rel="stylesheet" href="/styles/main.css"> 
+    <!-- Jquery in app.js and event listeners -->
+    <script src="/scripts/app.js" defer></script>
+   
+    <title>Social Media App </title>
+  </head>
+  <body>
+
+    <!-- IF USER IS LOGGED IN SHOW THIS NAVBAR VERSION -->
+  <div class="ui secondary pointing menu">
+    <h1>Social Media App</h1>
+    <a class="item" href="/">
+      <i class="home icon"></i>
+      Home
+    </a>
+    <a class="item" href="/users?userName=">
+      <i class="users icon"></i>
+      Friends
+    </a>
+
+    <div class="mainPageSearchBar">
+      <form action="/users" method="GET">
+      <div class="ui action input">
+        <input type="text" name="userName" placeholder="Search Users...">
+
+        <button class="ui button">Search</button>
+      </div>
+      </form>
+    </div>
+    <!-- NAVBAR RIGHT SIDE -->
+    <div class="right menu">
+      <!-- Notifications here -->
+      <div class="ui item">
+        <div class="ui dropdown">
+          <i class="plus heart icon"></i>
+          <div class="text">Notifications</div>
+          <i class="dropdown icon"></i>
+          <!--FIXME: Add Ajax here for notification storing -->
+          <div class="menu">
+            <div class="item">New</div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            </div>
+              </div>
+            </div>
+        
+        <a class="ui item" href="/posts/new">
+          <i class="plus circle icon" ></i>
+          New Post
+        </a>
+      <a class="ui item active" href="/users/<%= user.id %>">
+        <i class="user circle icon "></i>
+        Profile
+    </a>
+    
+      
+    </div>
+  </div>
+
+<!-- SECTION: SETTINGS CONTENT -->
+
+    <div class="settingsHeader"> 
+        <h4 class="ui horizontal divider header">
+          <i class="bar chart icon"></i>
+        <%= user.userName %> 's Account Setting
+        </h4>
+      </div>
+      <div class="settingsOptionsMenu">
+<div class="ui secondary vertical pointing menu"> <!-- FIXME: use jquery onbutton click change class to item active. off click change back to item -->
+    <a class="item active"> 
+      Home
+    </a>
+    <a class="item"> <!-- TODO: Build out routes -->
+      Accessibility
+    </a>
+    <a class="item"> <!-- TODO: Build out routes -->
+        Change Language  <div id="google_translate_element"></div>  
+      
+        <script type="text/javascript">  
+            function googleTranslateElementInit() {  
+                new google.translate.TranslateElement( 
+                    {pageLanguage: 'en'},  
+                    'google_translate_element' 
+                );  
+            }  
+        </script>
+      </a>
+      <a class="item" href="/users/<%= user._id %>"> 
+        Return to Account
+      </a>
+      <a class="item"></a>
+      <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+      <input class="item" type="submit" value="Delete Your Account" />
+    </form>
+  </a> 
+  </div>
+</div>
+  
+
+
+
+
+
+
+    <!-- required scripts for jquery and semantic-ui -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+
+    <script type="text/javascript" src= "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"> </script>  
+  </body>
+</html>
+
